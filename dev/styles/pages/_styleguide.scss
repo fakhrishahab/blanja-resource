@@ -1,0 +1,196 @@
+header{
+	width: 100%;
+	height: 60px;
+	padding: 0 20px;
+	box-sizing: border-box;
+	background-color: #FFF;
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.4);
+	@include clearfix;
+}
+h1{
+	font-size: 24px;
+	position: relative;
+	padding-left: 20px;
+
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 5px;
+		height: 100%;
+		background-color: $squash;
+		left: 0;
+	}
+}
+h2{
+	font-size: 20px;
+	color: $black;
+}
+
+.header{
+	&-logo{
+		padding-top: 18px;	
+		float: left;
+		color: $brownish_grey;
+		font-weight: bold;
+
+		&__text{
+			color: $tomato;
+		}
+	}
+
+	&-menu{
+		float: right;
+
+		&__list{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			height: 60px;
+		}
+
+		&__item{
+			display: inline-block;
+			float: left;
+			
+			a{
+				text-decoration: none;
+				color: $tomato2;
+				padding: 18px 15px;
+    			max-height: 100%;
+				display: block;
+			}
+		}
+	}
+}
+.content-wrapper{
+	margin-top: 20px;
+
+	&__grid{
+
+		&-item{
+			border: 1px solid $brownish_grey;
+			background-color: $warm_grey;
+		}
+
+	}
+
+	&__code{
+
+		figure{
+			background: $smoothGrey;
+			border: 1px solid $greyBorder;
+			margin-right:0;
+			margin-left: 0;
+			display: block;
+		    -webkit-margin-before: 1em;
+		    -webkit-margin-after: 1em;
+		    -webkit-margin-start: 0;
+		    -webkit-margin-end: 0;
+
+			pre{
+				padding: 10px;
+				white-space: pre-line;
+			}
+
+			xmp{
+				position: relative;
+				left: -440px;
+				padding: 15px;
+
+				&:before { content: ""; display: block; height: 1em; margin: 0 -5px -2em -5px; }
+			}
+		}
+
+	}
+}
+
+.content-block{
+	margin-bottom: 40px;
+}
+.content-text{
+
+	code{
+		background: $smoothGrey;
+		color: $tomato;
+		font-size: 12px;
+		padding: 3px;
+		border: 1px solid $white;
+	}
+
+}
+
+.content-nav{
+
+	&__menu{
+		list-style: none;	
+		padding-left: 35px;
+		margin: 0;
+		position: relative;
+
+		&:hover{
+
+			ul{
+				display: block;
+			}
+
+		}
+
+		ul{
+			list-style: none;
+			display: none;	
+
+			&:hover{
+
+				ul{
+					display: block;
+				}
+
+			}		
+		}
+
+		&.fixed{
+			position: fixed;
+			top: 20;
+		}
+
+		&:before{
+			display: block;
+			position: absolute;
+			content: '';
+			width: 3px;
+			height: 100%;
+			background-color: $tomato2;
+			z-index: 1;
+			left: 15;
+		}	
+
+		&-item{
+			display: block;
+
+			a{
+				text-decoration: none;
+				color: $tomato2;
+
+				&:active{
+					color: $tomato;
+				}
+			}
+
+			& > ul{
+				padding:0;
+				margin:0 0 0 20px;
+			}
+
+		}
+	}
+
+}
+
+.content-wrapper{
+
+	&__input{
+		margin-top: 20px;
+	}
+
+}

@@ -1,0 +1,8 @@
+@import 'helpers/variable';
+@import 'base/grid';
+
+body{
+	background-color: $white;
+	color: $black;
+	font-family: 'Arial';
+}

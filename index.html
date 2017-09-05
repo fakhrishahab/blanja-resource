@@ -1,0 +1,221 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,700i&amp;subset=latin-ext" rel="stylesheet"> -->
+	<link rel="stylesheet" href="http://localhost:4040/styles/styleguide.css">
+
+	<script src="http://localhost:4040/scripts/components/mainsite/index.js"></script>
+</head>
+<body>
+	<header class="header">
+		<div class="header-logo">
+			<span class="header-logo__text">BLANJA</span>
+			STYLEGUIDE
+		</div>
+		<div class="header-menu">
+			<ul class="header-menu__list">
+				<li class="header-menu__item"><a href="">Component</a></li>
+				<li class="header-menu__item"><a href="font-icon.html">Font Icon</a></li>
+				<li class="header-menu__item"><a href=""></a></li>
+				<li class="header-menu__item"><a href=""></a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="blj-container content-wrapper">
+		<div class="row">
+			<div class="col-9">
+				<!-- CONTENT BLOCK FOR GRID SYSTEM -->
+				<div class="content-block">
+					<div class="row" id="grid_system">
+						<h1>Grid System</h1>
+					</div>
+					<div class="row content-wrapper__grid">
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+						<div class="col-1 content-wrapper__grid-item">.col-1</div>
+					</div>
+					<div class="row content-wrapper__code">
+						<figure>
+							<pre>
+								<code data-lang="scss" class="language-scss">
+									// Add this code to the top of your scss file
+									@import 'base/grid';
+								</code>
+							</pre>
+						</figure>
+					</div>
+
+					<div class="row">
+						<h2>How to use it</h2>
+					</div>
+
+					<div class="row content-wrapper__code">
+						<figure>
+							<xmp>
+								<div class="blj-container">
+									<div class="row">
+										<div class="col-4"></div>
+										<div class="col-4"></div>
+										<div class="col-4"></div>
+									</div>
+								</div>
+							</xmp>
+						</figure>
+					</div>
+
+					<div class="row">
+						<span class="content-text">For a full-width container use class <code>.blj-container-fluid</code> and <code>.blj-container</code> for 1200px width</span>
+					</div>
+				</div>
+				<!-- END CONTENT BLOCK FOR GRID SYSTEM -->
+
+				<!-- CONTENT BLOCK FOR INPUT FIELD -->
+				<div class="content-block" id="input_field">
+					<h1>Input Field</h1>
+				</div>
+				<div class="row content-wrapper__code">
+					<figure>
+						<pre>
+							<code data-lang="scss" class="language-scss">
+								// Add this code to the top of your scss file
+								@import 'components/input';
+							</code>
+						</pre>
+					</figure>
+				</div>
+				<div class="row" id="input_field_text">
+					<h2>Input Text</h2>
+				</div>
+				<div class="row content-wrapper__input">
+					<div class="content-wrapper__input">
+						<div class="input-group__label">Username</div>
+						<div class="input-group__text">
+							<input type="text" placeholder="Username">
+						</div>
+					</div>
+
+					<div class="row content-wrapper__code">
+						<figure>
+							<xmp>
+								<div class="input-group__label">Username</div>
+								<div class="input-group__text">
+									<input type="text" placeholder="Username">
+								</div>
+							</xmp>
+						</figure>
+					</div>
+
+					<div class="content-wrapper__input">
+						<div class="input-group__text hasIcon">
+							<i class="bl-account-outline"></i>
+							<input type="text" placeholder="Username">
+						</div>
+					</div>
+
+					<div class="row content-wrapper__code">
+						<figure>
+							<xmp>
+								<div class="input-group__text hasIcon">
+									<i class="bl-account-outline"></i>
+									<input type="text" placeholder="Username">
+								</div>
+							</xmp>
+						</figure>
+					</div>
+					
+					<div class="content-wrapper__input">
+						<div class="input-group__text hasIcon">
+							<i class="bl-account-outline"></i>
+							<input type="password" placeholder="Password">
+							<i class="bl-lock"></i>
+						</div>
+					</div>
+
+					<div class="content-wrapper__code">
+						<figure>
+							<xmp>
+								<div class="input-group__text hasIcon">
+									<i class="bl-account-outline"></i>
+									<input type="password" placeholder="Password">
+									<i class="bl-lock"></i>
+								</div>
+							</xmp>
+						</figure>
+					</div>
+					
+					<div class="row" id="input_field_select">
+						<h2>Select Box</h2>
+					</div>
+					<div class="content-wrapper__input">
+						<div class="input-group__select">
+							<select name="" id="">
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+								<option value="">4</option>
+							</select>
+						</div>						
+					</div>
+
+					<div class="content-wrapper__code">
+						<figure>
+							<xmp>
+								<div class="input-group__select">
+									<select name="" id="">
+										<option value="">1</option>
+										<option value="">2</option>
+										<option value="">3</option>
+										<option value="">4</option>
+									</select>
+								</div>	
+							</xmp>
+						</figure>
+					</div>
+
+					
+				</div>
+				<!-- END CONTENT BLOCK FOR INPUT FIELD -->
+								
+			</div>
+
+			<div class="col-3">
+				<div class="content-nav">
+					<ul class="content-nav__menu" id="staticMenu">
+						<li class="content-nav__menu-item">
+							<a href="#grid_system">Grid System</a>
+						</li>
+						<li class="content-nav__menu-item">
+							<a href="#input_field">Input Field</a>
+							<ul>
+								<li><a href="#input_field_text">Text Field</a></li>
+								<li><a href="#input_field_select">Select Box</a></li>
+								<li><a href="#input_field_checkbox">Checkbox</a></li>
+								<li><a href="#input_field_radio">Radio Button</a></li>
+							</ul>
+						</li>
+						<li class="content-nav__menu-item">
+							<a href="">Button</a>
+						</li>
+						<li class="content-nav__menu-item">
+							<a href="">Modal</a>
+						</li>						
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<script src="http://localhost:4040/scripts/pages/styleguide.js"></script>
+</body>
+</html>

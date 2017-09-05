@@ -1,0 +1,89 @@
+.input-group{
+	&__label{
+		margin-bottom: 10px;
+	}
+
+	&__text{		
+		border-radius: 4px;
+		border: 1px solid $greyBorder;
+		max-height: 40px;
+		height: 100%;
+		display: block;
+		width: 100%;
+		background: $absWhite;
+		box-sizing: border-box;
+		position: relative;
+
+		&.hasIcon{
+
+			input{
+				// text-indent: 48px;
+				padding: 12px 45px;
+			}
+
+		}
+
+		label{
+			display: block;
+			width: 100%;
+		}
+
+		input{
+			display: block;
+			font-size: 14px;
+			padding: 12px;
+			background: transparent;
+			width: 100%;
+			border: none;
+			max-height: 100%;
+			box-sizing: border-box;
+		}
+
+		i{
+			color: blue;
+			position: absolute;
+			top: 10px;
+			font-size: 24px;
+			color: $warm_grey;
+
+			&:first-child{
+				left: 13px;
+			}
+			&:last-child{
+				right: 13px;
+			}
+		}
+	}
+
+	&__select{
+		
+		select{
+			width: 100%;
+			display: block;
+			height: 100%;
+			max-height: 40px;
+			border-radius: 4px;
+			border: 1px solid $greyBorder;
+			padding: 12px;
+		}
+
+	}
+
+}
+
+::-webkit-input-placeholder{
+	color: $warm_grey;
+}
+:-moz-placholder{
+	color: $warm_grey;
+	opacity: 1;
+}
+::-moz-placholder{
+	color: $warm_grey;
+}
+:-ms-input-placholder{
+	color: $warm_grey;
+}
+::ms-input-placeholder{
+	color: $warm_grey;
+}
