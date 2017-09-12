@@ -14,7 +14,7 @@ import connect from 'gulp-connect';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
-import browserify from 'gulp-browserify';
+import browserify from 'browserify';
 import eslint from 'gulp-eslint';
 import cache from 'gulp-cache';
 import plumber from 'gulp-plumber';
@@ -23,8 +23,10 @@ import chalk from 'chalk';
 import logger from 'gulp-logger';
 import cssnano from 'gulp-cssnano';
 import create_server from './server';
+import transform from 'vinyl-transform';
+import webpack from 'webpack-stream';
 
-console.log(env.build);
+// console.log(env.build);
 
 let taskList = [
 	'clean',
@@ -65,7 +67,7 @@ let cors = function(req, res, next){
 
 // Check apps environment 
 const isProd = process.env.NODE_ENV === "production";
-console.log(isProd);
+// console.log(isProd);
 
 gulp.task('clean', function(){
 	del.sync('dist');
@@ -94,12 +96,28 @@ gulp.task('linting', function(){
 });
 
 gulp.task('commons_scripts', ['clear', 'modular_scripts'], function(){
+	var browserified = transform(function(filename) {
+	    var b = browserify(filename);
+	    return b.bundle();
+	});
 	return gulp.src(env.build.devPath+'/scripts/commons/*.js')
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
-		.pipe(babel())
-		.pipe(browserify({
-			debug: false
+		.pipe(webpack({
+			module:{
+				rules:[
+					{
+						test: /\.js?$/,
+						loader: 'babel-loader',
+						query: {
+							presets: ['es2015']
+						}
+					},
+				]
+			},
+			output: {
+				filename: "bundle.js"
+			}
 		}))
 		.pipe(isProd ? uglify({
 			mangle: true,
@@ -118,14 +136,30 @@ gulp.task('commons_scripts', ['clear', 'modular_scripts'], function(){
 });
 
 gulp.task('modular_scripts', ['clear'], function(){
+	var browserified = transform(function(filename) {
+	    var b = browserify(filename);
+	    return b.bundle();
+	});
 	return gulp.src(env.build.devPath+'/scripts/components/{*,}')
 		.pipe(flatmap(function(stream, dir){
 			return gulp.src(dir.path + '/*.js')
 				.pipe(plumber())
 				.pipe(sourcemaps.init())
-				.pipe(babel())
-				.pipe(browserify({
-					debug: false
+				.pipe(webpack({
+					module:{
+						rules:[
+							{
+								test: /\.js?$/,
+								loader: 'babel-loader',
+								query: {
+									presets: ['es2015']
+								}
+							},
+						]
+					},
+					output: {
+						filename: "bundle.js"
+					}
 				}))
 				// .pipe(concat('modules.js'))
 				.pipe(isProd ? uglify({
@@ -146,14 +180,30 @@ gulp.task('modular_scripts', ['clear'], function(){
 });
 
 gulp.task('pages_scripts', ['clear'], function(){
+	var browserified = transform(function(filename) {
+	    var b = browserify(filename);
+	    return b.bundle();
+	});
 	return gulp.src(env.build.devPath+'/scripts/pages/{*,}')
 		.pipe(flatmap(function(stream, dir){
-			return gulp.src(dir.path + '/*.js')
+			return gulp.src(dir.path + '/**/*.js')
 				.pipe(plumber())
 				.pipe(sourcemaps.init())
-				.pipe(babel())
-				.pipe(browserify({
-					debug: false
+				.pipe(webpack({
+					module:{
+						rules:[
+							{
+								test: /\.js?$/,
+								loader: 'babel-loader',
+								query: {
+									presets: ['es2015']
+								}
+							},
+						]
+					},
+					output: {
+						filename: "bundle.js"
+					}
 				}))
 				// .pipe(concat('modules.js'))
 				.pipe(isProd ? uglify({
@@ -163,7 +213,7 @@ gulp.task('pages_scripts', ['clear'], function(){
 					compress: true
 				}) : gutil.noop())
 				.pipe(size({gzip: env.build.compressionGzip}))
-				.pipe(sourcemaps.write())
+				.pipe(sourcemaps.write('.'))
 				.pipe(logger({
 					before: 'STARTED COMPILING MODULAR SCRIPTS',
 					after: 'FINISH COMPILING MODULAR SCRIPTS'
