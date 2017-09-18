@@ -1,10 +1,10 @@
 {
     "rules":{
-        //"camelcase": 1,
-        //"comma-dangle": 2,
-        //"quotes": 0,
-        //"no-duplicate-imports": 1,
-        //"semi" : 2
+        // "camelcase": 1,
+        // "comma-dangle": 2,
+        // "quotes": 0,
+        // "no-duplicate-imports": 1,
+        // "semi" : 2
     },
     "parser" : "babel-eslint"
 }
